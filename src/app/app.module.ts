@@ -5,8 +5,12 @@
 
     import { AppComponent } from './app.component';
     import { HeroesComponent } from './heroes/heroes.component';
+    import { HeroService } from './heroes/hero.service';
     import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { MessagesComponent } from './messages/messages.component';
+    import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './messages/message.service';
+import { AppRoutingModule } from './/app-routing.module';
+
 
 
     @NgModule({
@@ -18,9 +22,11 @@ import { MessagesComponent } from './messages/messages.component';
       ],
       imports: [
         BrowserModule,
-        FormsModule
+        FormsModule,
+        AppRoutingModule
       ],
-      providers: [ ],
+      //cria uma instancia e injeta em qualquer classe que pedir ela. Uma vez o Hero Service ali e o Message Service, também, o site só funciona quando estiver amarrado
+      providers: [ HeroService, MessageService],
       bootstrap: [AppComponent]
     })
     export class AppModule { }
